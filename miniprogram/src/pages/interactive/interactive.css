@@ -1,0 +1,143 @@
+.interactive-page {
+  min-height: 100vh;
+  background: #0a0a0a;
+}
+
+.interactive-header {
+  padding: 32px;
+  text-align: center;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+.interactive-title {
+  font-size: 40px;
+  font-weight: 900;
+  color: #e8c97a;
+  display: block;
+  text-shadow: 0 0 30px rgba(200, 164, 78, 0.15);
+}
+
+.interactive-sub {
+  font-size: 24px;
+  color: #606060;
+  display: block;
+  margin-top: 8px;
+  letter-spacing: 2px;
+}
+
+.tab-bar {
+  display: flex;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+.tab-item {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+  font-size: 26px;
+  color: #606060;
+  transition: all 0.3s;
+  position: relative;
+
+  &:active {
+    background: rgba(200, 164, 78, 0.05);
+  }
+}
+
+.tab-active {
+  color: #c8a44e;
+}
+
+.interactive-content {
+  height: calc(100vh - 180px);
+  padding: 24px 16px;
+}
+
+/* Layers view */
+.layers-view {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.layer-card {
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  border-left-width: 6px;
+  background: #111111;
+}
+
+.layer-header {
+  margin-bottom: 16px;
+}
+
+.layer-name {
+  font-size: 32px;
+  font-weight: 700;
+  display: block;
+}
+
+.layer-subtitle {
+  font-size: 22px;
+  color: #606060;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.layer-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.layer-tag {
+  padding: 6px 14px;
+  border-radius: 16px;
+  border-width: 1px;
+  font-size: 22px;
+}
+
+/* Concepts grid */
+.concepts-view {
+  padding: 8px 0;
+}
+
+.concepts-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.concept-card {
+  width: calc(50% - 5px);
+  padding: 16px;
+  border-radius: 10px;
+  border-width: 1px;
+  background: #111111;
+  position: relative;
+  transition: all 0.3s;
+
+  &:active {
+    border-color: rgba(200, 164, 78, 0.4);
+  }
+}
+
+.concept-layer-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+.concept-name {
+  font-size: 26px;
+  font-weight: 600;
+  color: #d0d0d0;
+  display: block;
+}
+
+.concept-layer-label {
+  font-size: 20px;
+  margin-top: 4px;
+}

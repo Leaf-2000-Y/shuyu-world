@@ -1,0 +1,109 @@
+/* 树语世界 小程序全局样式 */
+
+page {
+  background-color: #0a0a0a;
+  color: #e0e0e0;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  font-size: 28px;
+  line-height: 1.75;
+}
+
+/* 通用工具类 */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.text-amber { color: #c8a44e; }
+.text-amber-light { color: #e8c97a; }
+.text-muted { color: #606060; }
+.text-secondary { color: #808080; }
+
+.bg-noir-900 { background-color: #0a0a0a; }
+.bg-noir-800 { background-color: #111111; }
+.bg-card { background-color: #111111; }
+
+.border-noir-700 { border-color: #1a1a1a; }
+
+/* 金色光晕文字 */
+.glow-text {
+  text-shadow: 0 0 30px rgba(200, 164, 78, 0.15);
+}
+
+/* 分隔线 */
+.divider {
+  height: 1px;
+  background-color: #1a1a1a;
+  margin: 32px 0;
+}
+
+/* 文章内容通用样式 */
+.article-content h3 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #e8c97a;
+  margin-top: 48px;
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+.article-content p {
+  font-size: 30px;
+  color: #808080;
+  line-height: 1.85;
+  margin-bottom: 24px;
+}
+
+.article-content strong {
+  color: #c0c0c0;
+  font-weight: 700;
+}
+
+.article-content blockquote {
+  margin: 32px 0;
+  padding: 24px 32px;
+  border-left-width: 6px;
+  border-left-color: #c8a44e;
+  background-color: #111111;
+  border-radius: 8px;
+}
+
+.article-content blockquote p {
+  font-size: 28px;
+  color: #e8c97a;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+.article-content hr {
+  margin: 40px 0;
+  border: none;
+  height: 1px;
+  background-color: #1a1a1a;
+}
+
+/* 动画 */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}

@@ -1,0 +1,200 @@
+/* 首页 LandingPage 样式 */
+
+.landing-page {
+  min-height: 100vh;
+  background-color: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 70%);
+}
+
+.landing-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 60px 32px;
+}
+
+.hero-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 56px;
+  font-weight: 900;
+  color: #c8a44e;
+  letter-spacing: 8px;
+  text-shadow: 0 0 40px rgba(200, 164, 78, 0.2);
+}
+
+.hero-subtitle {
+  font-size: 26px;
+  color: #808080;
+  letter-spacing: 6px;
+  margin-top: 16px;
+}
+
+.quote-section {
+  margin-top: 48px;
+  margin-bottom: 40px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-text {
+  font-size: 30px;
+  color: #c0c0c0;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.cta-section {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.btn-primary {
+  padding: 16px 40px;
+  border-radius: 48px;
+  border: 2px solid rgba(200, 164, 78, 0.5);
+  color: #c8a44e;
+  font-size: 26px;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+
+  &:active {
+    background: rgba(200, 164, 78, 0.1);
+  }
+}
+
+.btn-secondary {
+  padding: 16px 40px;
+  border-radius: 48px;
+  border: 2px solid rgba(128, 128, 128, 0.3);
+  color: #808080;
+  font-size: 26px;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+
+  &:active {
+    background: rgba(128, 128, 128, 0.1);
+    border-color: rgba(200, 164, 78, 0.3);
+    color: #a09080;
+  }
+}
+
+.chapters-section {
+  position: relative;
+  z-index: 1;
+  padding: 0 32px 40px;
+}
+
+.chapters-title {
+  font-size: 24px;
+  color: #606060;
+  letter-spacing: 4px;
+  display: block;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.chapters-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.chapter-card {
+  width: calc(50% - 6px);
+  padding: 20px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(128, 128, 128, 0.15);
+  background: rgba(26, 26, 26, 0.6);
+  transition: all 0.3s;
+
+  &:active {
+    border-color: rgba(200, 164, 78, 0.3);
+    background: rgba(200, 164, 78, 0.05);
+  }
+}
+
+.chapter-num {
+  font-size: 22px;
+  color: #c8a44e;
+  letter-spacing: 2px;
+}
+
+.chapter-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #e0e0e0;
+  display: block;
+  margin-top: 8px;
+}
+
+.chapter-sub {
+  font-size: 22px;
+  color: #606060;
+  display: block;
+  margin-top: 4px;
+}
+
+.landing-links {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 24px 32px;
+}
+
+.link-item {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  transition: all 0.3s;
+
+  &:active {
+    border-color: rgba(200, 164, 78, 0.3);
+    background: rgba(200, 164, 78, 0.05);
+  }
+}
+
+.link-text {
+  font-size: 24px;
+  color: #808080;
+  letter-spacing: 2px;
+}
+
+.landing-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 40px 32px;
+  border-top: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+.footer-text {
+  font-size: 22px;
+  color: #404040;
+}
