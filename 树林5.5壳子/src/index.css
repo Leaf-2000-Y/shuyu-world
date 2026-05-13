@@ -1,0 +1,20 @@
+/* System font stack — no external font requests, instant load in China.
+   - Chinese: Apple PingFang / Microsoft YaHei / Hiragino Sans GB
+   - Western serif (for English headings): Times New Roman / Georgia */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --font-serif-cn: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Serif SC",
+                   "Source Han Serif CN", "Songti SC", "STSong", serif;
+  --font-display: "Playfair Display", Georgia, "Times New Roman", "PingFang SC", serif;
+}
+
+body {
+  font-family: var(--font-serif-cn);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

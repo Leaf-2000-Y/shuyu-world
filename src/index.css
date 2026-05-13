@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Noto Serif SC', serif;
+    background-color: #0a0a0a;
+    color: #e0e0e0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: rgba(200, 164, 78, 0.3);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2a2a2a;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #404040;
+  }
+}
+
+@layer components {
+  .noise-texture {
+    position: relative;
+  }
+
+  .noise-texture::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.4;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  }
+
+  .radial-bg {
+    background: radial-gradient(circle at center, #2a2a2a 0%, #111111 40%, #0a0a0a 80%);
+  }
+
+  .gold-accent {
+    color: #c8a44e;
+  }
+
+  .gold-border {
+    border-color: #c8a44e;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 80px rgba(200, 164, 78, 0.15);
+  }
+
+  .article-content h2 {
+    @apply text-2xl font-bold mt-12 mb-4 text-amber-light font-serif;
+  }
+
+  .article-content h3 {
+    @apply text-xl font-semibold mt-8 mb-3 text-noir-100 font-serif;
+  }
+
+  .article-content p {
+    @apply mb-5 leading-relaxed text-noir-100 text-base;
+  }
+
+  .article-content strong {
+    @apply text-noir-50 font-semibold;
+  }
+
+  .article-content ul,
+  .article-content ol {
+    @apply mb-5 pl-6 text-noir-100;
+  }
+
+  .article-content li {
+    @apply mb-2 leading-relaxed;
+  }
+
+  .article-content blockquote {
+    @apply border-l-4 border-amber/40 pl-6 py-3 my-6 italic text-noir-200 bg-noir-800/30 rounded-r-lg;
+  }
+
+  .article-content blockquote p {
+    @apply mb-0;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

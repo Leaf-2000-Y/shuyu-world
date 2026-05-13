@@ -1,0 +1,7 @@
+name = "shulin55livestreamv10"
+compatibility_date = "2025-04-30"
+
+# Static assets (Vite-built SPA)
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"
