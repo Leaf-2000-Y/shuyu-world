@@ -1,9 +1,11 @@
-import { useMemo } from 'react';
+import { useMemo, useEffect, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { motion } from 'framer-motion';
 import ReadingProgress from './ReadingProgress';
 import SideNav from './SideNav';
+import StickyNav from './StickyNav';
+import BackToTop from './BackToTop';
 import ConceptCard from './ConceptCard';
 import QuoteHighlight from './QuoteHighlight';
 
@@ -19,7 +21,7 @@ const chapterThemes: Record<string, string> = {
   '结语': 'from-noir-900 via-noir-800/40 to-noir-900',
 };
 
-function wrapChapterContent(markdown: string): { sections: { id: string; title: string; content: string }[] } {
+function wrapChapterContent(markdown: string): { id: string; title: string; content: string }[] {
   const lines = markdown.split('\n');
   const sections: { id: string; title: string; content: string }[] = [];
   let currentTitle = '';
@@ -77,11 +79,61 @@ function getSectionBg(title: string): string {
 
 export default function ArticlePage() {
   const sections = useMemo(() => wrapChapterContent(articleRaw), []);
+  const pageRef = useRef<HTMLDivElement>(null);
+
+  // 处理从 LandingPage 带锚点的跳转
+  useEffect(() => {
+    // 检查 URL hash 或 sessionStorage 中的目标章节
+    const targetChapter = sessionStorage.getItem('targetChapter');
+    if (targetChapter) {
+      // 清除存储
+      sessionStorage.removeItem('targetChapter');
+      
+      // 等待 DOM 渲染完成后滚动到目标章节
+      setTimeout(() => {
+        const el = document.getElementById(targetChapter);
+        if (el) {
+          // 考虑导航栏高度偏移
+          const navHeight = 80; // StickyNav 高度
+          const elementPosition = el.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - navHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 500);
+    }
+
+    // 监听自定义事件
+    const handleScrollToChapter = ((e: CustomEvent) => {
+      const chapterId = e.detail;
+      setTimeout(() => {
+        const el = document.getElementById(chapterId);
+        if (el) {
+          const navHeight = 80;
+          const elementPosition = el.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY - navHeight;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 300);
+    }) as EventListener;
+
+    window.addEventListener('scrollToChapter', handleScrollToChapter);
+    return () => window.removeEventListener('scrollToChapter', handleScrollToChapter);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-noir-900 font-serif">
+    <div ref={pageRef} className="min-h-screen bg-noir-900 font-serif">
       <ReadingProgress />
+      <StickyNav sections={sections} />
       <SideNav />
+      <BackToTop />
 
       {sections.map((section, idx) => (
         <section

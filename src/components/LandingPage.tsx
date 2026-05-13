@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
 interface LandingPageProps {
-  onNavigate: (page: 'landing' | 'article' | 'interactive') => void;
+  onNavigate: (page: 'landing' | 'article' | 'interactive', chapter?: string) => void;
 }
 
 const quotes = [
@@ -17,11 +17,11 @@ const quotes = [
 ];
 
 const chapters = [
-  { num: '第一章', title: '世界的真相', sub: '不确定性、硬约束与叙事场' },
-  { num: '第二章', title: '认知的枷锁', sub: '我们如何误解世界' },
-  { num: '第三章', title: '决策的艺术', sub: '从概率分布到不对称性' },
-  { num: '第四章', title: '赋能之路', sub: '君子不器与能耐寻求' },
-  { num: '第五章', title: '叙事行动', sub: '成为意义的创造者' },
+  { num: '第一章', title: '世界的真相', sub: '不确定性、硬约束与叙事场', id: 'ch1' },
+  { num: '第二章', title: '认知的枷锁', sub: '我们如何误解世界', id: 'ch2' },
+  { num: '第三章', title: '决策的艺术', sub: '从概率分布到不对称性', id: 'ch3' },
+  { num: '第四章', title: '赋能之路', sub: '君子不器与能耐寻求', id: 'ch4' },
+  { num: '第五章', title: '叙事行动', sub: '成为意义的创造者', id: 'ch5' },
 ];
 
 export default function LandingPage({ onNavigate }: LandingPageProps) {
@@ -175,8 +175,8 @@ export default function LandingPage({ onNavigate }: LandingPageProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 2.5 + i * 0.15, duration: 1 }}
-                onClick={() => onNavigate('article')}
-                className="text-left p-3 rounded-lg transition-all duration-500 group"
+                onClick={() => onNavigate('article', ch.id)}
+                className="text-left p-3 rounded-lg transition-all duration-500 group cursor-pointer"
                 style={{
                   border: '1px solid rgba(180,160,140,0.3)',
                   background: 'rgba(255,252,248,0.4)',
