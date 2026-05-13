@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: '/shulin-world/',
   assetsInclude: ['**/*.md'],
   server: {
     host: '0.0.0.0',
